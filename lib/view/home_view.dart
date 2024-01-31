@@ -15,21 +15,25 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
+    final heigth = mq.height;
+    final width = mq.width;
     return Scaffold(
       extendBody: true,
+      
       appBar: AppBar(
         title: const Text('Hi Alpha'),
         // backgroundColor: ,
         actions: <Widget>[
           Container(
-            height: 50.0,
-            width: 50.0,
+            height: heigth * 0.1,
+            width: width * 0.1,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               color: const Color(0xfffce8fc),
             ),
             clipBehavior: Clip.antiAlias,
-            margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            margin: EdgeInsets.symmetric(
+                horizontal: width * 0.025, vertical: heigth * 0.005),
             child: Image.network(
               'https://randomuser.me/api/portraits/men/18.jpg',
               fit: BoxFit.cover,
@@ -53,8 +57,8 @@ class _HomeViewState extends State<HomeView> {
         clipper: CustomNavBarClipper(),
         child: Container(
           alignment: Alignment.bottomCenter,
-          height: mq.height * 0.15,
-          width: mq.width,
+          height: heigth * 0.15,
+          width: width,
           color: const Color(0xfffce8fc),
           child: NavigationBar(
             backgroundColor: const Color(0xfffce8fc),
